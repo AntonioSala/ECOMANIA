@@ -1,0 +1,59 @@
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoClima Analytics</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>EcoClima Analytics</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="analyses/">Analisi</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="intro">
+        <h2>Benvenuto su EcoClima Analytics</h2>
+        <p>Qui trovi analisi statistiche su dati open source di clima, ambiente ed ecologia.</p>
+      </section>
+
+      <section id="latest-analysis">
+        <h2>Ultima analisi pubblicata</h2>
+        <article>
+          <h3><a href="analyses/analisi-01.html">Trend temperature medie in Italia (2020-2024)</a></h3>
+          <p>Un breve riassunto dei risultati principali…</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer id="contatti">
+    <div class="container">
+      <p>Seguimi su <a href="https://linkedin.com/in/tuoprofilo">LinkedIn</a> e <a href="https://instagram.com/tuoprofilo">Instagram</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle navigation on mobile
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav ul');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('visible');
+    });
+  </script>
+</body>
+</html>
+
