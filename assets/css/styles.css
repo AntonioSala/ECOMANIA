@@ -121,7 +121,7 @@ header h1 {
 .feature-card {
   position: relative;
   flex: 1;
-  height: 300px;
+  min-height: 250px; /* 👈 FIX per mobile */
   background-position: center;
   background-size: cover;
   border-radius: 8px;
@@ -129,6 +129,8 @@ header h1 {
   text-decoration: none;
   transition: transform 0.3s ease;
   transform-origin: center;
+  display: flex;
+  align-items: flex-end;
 }
 .feature-card:hover {
   transform: scale(1.05);
@@ -174,7 +176,6 @@ footer a {
   .main-nav ul.visible {
     display: flex;
   }
-  /* Le card in colonna su mobile */
   .features-container {
     flex-direction: column;
   }
