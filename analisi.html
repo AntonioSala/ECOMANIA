@@ -1,0 +1,78 @@
+<!-- File: analisi.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoItaly Agorà - Analisi Ambientali</title>
+  <link rel="stylesheet" href="assets/css/analisi.css" />
+</head>
+<body>
+  <!-- Header (stessa struttura di index.html) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" alt="EcoItaly Agorà Logo" />
+        </a>
+        <h1>EcoItaly Agorà</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="analisi.html" class="active">Analisi</a></li>
+          <li><a href="report.html">Report</a></li>
+          <li><a href="dataset.html">Dataset</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero specifica per Analisi -->
+  <section class="page-hero">
+    <div class="container">
+      <h2>Analisi Ambientali</h2>
+      <p>Esplora i nostri ultimi studi e approfondimenti sull'ambiente.</p>
+    </div>
+  </section>
+
+  <!-- Contenuto principale -->
+  <main>
+    <section class="analysis-list">
+      <div class="container">
+        <article class="analysis-item">
+          <h3>Trend temperature medie in Italia (2020–2024)</h3>
+          <p>Un'analisi approfondita sulle variazioni termiche e le loro implicazioni.</p>
+          <a href="#" class="btn">Leggi di più</a>
+        </article>
+        <article class="analysis-item">
+          <h3>Qualità dell'aria nelle città italiane</h3>
+          <p>Report dettagliato sui livelli di inquinanti in tempo reale.</p>
+          <a href="#" class="btn">Leggi di più</a>
+        </article>
+        <article class="analysis-item">
+          <h3>Rischio idrogeologico e prevenzione</h3>
+          <p>Valutazioni e previsioni per proteggere il territorio.</p>
+          <a href="#" class="btn">Leggi di più</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 EcoItaly Agorà. Tutti i diritti riservati.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Termini di Servizio</a> | <a href="#">Contatti</a></p>
+    </div>
+  </footer>
+
+  <!-- Script per menu e reveal (importa da index.js se preferisci) -->
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.main-nav ul');
+    btn.addEventListener('click', () => menu.classList.toggle('visible'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!-- File: report.html (client-only version updated) -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoItaly Agorà - Report Inquinamento</title>
+  <link rel="stylesheet" href="assets/css/report.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" alt="EcoItaly Agorà Logo">
+        </a>
+        <h1>EcoItaly Agorà</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="analisi.html">Analisi</a></li>
+          <li><a href="report.html" class="active">Report</a></li>
+          <li><a href="dataset.html">Dataset</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="report-hero">
+    <div class="container">
+      <h2>Report su Inquinamento</h2>
+      <p>Livelli di inquinanti aggiornati in tempo reale per le principali città.</p>
+    </div>
+  </section>
+
+  <!-- Filtro Città -->
+  <main>
+    <section class="filter-bar">
+      <div class="container">
+        <label for="city-select">Seleziona città:</label>
+        <select id="city-select">
+          <option value="Milano">Milano</option>
+          <option value="Roma">Roma</option>
+          <option value="Turin">Torino</option>
+          <option value="Napoli">Napoli</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Cards Inquinanti -->
+    <section class="report-cards">
+      <div class="container cards-grid">
+        <article class="card">
+          <h3>pm25</h3>
+          <p class="value">Livello attuale: --</p>
+        </article>
+        <article class="card">
+          <h3>pm10</h3>
+          <p class="value">Livello attuale: --</p>
+        </article>
+        <article class="card">
+          <h3>no2</h3>
+          <p class="value">Livello attuale: --</p>
+        </article>
+        <article class="card">
+          <h3>o3</h3>
+          <p class="value">Livello attuale: --</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 EcoItaly Agorà. Tutti i diritti riservati.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Termini di Servizio</a> | <a href="#">Contatti</a></p>
+    </div>
+  </footer>
+
+  <!-- Script per menu e fetch dati diretto da OpenAQ -->
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.main-nav ul');
+    btn.addEventListener('click', () => menu.classList.toggle('visible'));
+
+    async function loadData(city) {
+      try {
+        // Fetch up to 100 results to cover multiple stations
+        const resp = await fetch(`https://api.openaq.org/v2/latest?city=${encodeURIComponent(city)}&country=IT&limit=100`);
+        const json = await resp.json();
+        // Flatten all measurements
+        const measurements = json.results.flatMap(r => r.measurements.map(m => ({ parameter: m.parameter, value: m.value, unit: m.unit })));
+        document.querySelectorAll('.card').forEach(card => {
+          const param = card.querySelector('h3').textContent;
+          const m = measurements.find(m => m.parameter.toLowerCase() === param.toLowerCase());
+          card.querySelector('.value').textContent = m ? `Livello attuale: ${m.value} ${m.unit}` : 'Dati non disponibili';
+        });
+      } catch (e) {
+        console.error('Errore fetch:', e);
+      }
+    }
+
+    const select = document.getElementById('city-select');
+    select.addEventListener('change', () => loadData(select.value));
+    // Initial load
+    loadData(select.value);
+  </script>
+</body>
+</html>
