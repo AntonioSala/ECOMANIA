@@ -1,59 +1,58 @@
-<!-- File: index.html -->
+<!-- Updated index.html -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcoClima Analytics</title>
+  <title>EcoItaly Agorà</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>EcoClima Analytics</h1>
-      <nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html" class="logo">
+          <img src="assets/img/logo.png" alt="EcoItaly Agorà Logo" />
+        </a>
+        <h1>EcoItaly Agorà</h1>
+      </div>
+      <nav class="main-nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="analyses/">Analisi</a></li>
-          <li><a href="blog/">Blog</a></li>
-          <li><a href="#contatti">Contatti</a></li>
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#chi-siamo">Chi siamo</a></li>
+          <li><a href="#servizi">Servizi</a></li>
+          <li><a href="#notizie">Notizie</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contatti">Contatto</a></li>
         </ul>
       </nav>
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <section id="intro">
-        <h2>Benvenuto su EcoClima Analytics</h2>
-        <p>Qui trovi analisi statistiche su dati open source di clima, ambiente ed ecologia.</p>
-      </section>
-
-      <section id="latest-analysis">
-        <h2>Ultima analisi pubblicata</h2>
-        <article>
-          <h3><a href="analyses/analisi-01.html">Trend temperature medie in Italia (2020-2024)</a></h3>
-          <p>Un breve riassunto dei risultati principali…</p>
-        </article>
-      </section>
+  <section class="hero">
+    <div class="hero-overlay container">
+      <h2>Analisi ambientali</h2>
+      <p>Scopri i dati più importanti per il tuo business</p>
+      <a href="servizi.html" class="btn">VIEW SERVICE</a>
     </div>
+  </section>
+
+  <main>
+    <!-- Inserisci qui le altre sezioni: #intro, #analisi, ecc. -->
   </main>
 
   <footer id="contatti">
     <div class="container">
-      <p>Seguimi su <a href="https://linkedin.com/in/tuoprofilo">LinkedIn</a> e <a href="https://instagram.com/tuoprofilo">Instagram</a></p>
+      <p>Seguimi su <a href="#">LinkedIn</a>, <a href="#">Instagram</a> e <a href="#">GitHub</a></p>
     </div>
   </footer>
 
   <script>
-    // Toggle navigation on mobile
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav ul');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('visible');
-    });
+    // Mobile menu toggle
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.main-nav ul');
+    btn.addEventListener('click', () => menu.classList.toggle('visible'));
   </script>
 </body>
 </html>
-
