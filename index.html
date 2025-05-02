@@ -1,4 +1,4 @@
-<!-- Updated index.html -->
+<!-- Updated index.html with hover effect on feature cards -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -31,20 +31,44 @@
   </header>
 
   <section class="hero">
-    <div class="hero-overlay container">
-      <h2>Analisi ambientali</h2>
-      <p>Scopri i dati più importanti per il tuo business</p>
-      <a href="servizi.html" class="btn">VIEW SERVICE</a>
+    <div class="hero-overlay">
+      <div class="container">
+        <h2 class="reveal">Analisi ambientali</h2>
+        <p class="reveal">Scopri i dati più importanti per il tuo business</p>
+        <a href="servizi.html" class="btn reveal">VIEW SERVICE</a>
+      </div>
     </div>
   </section>
 
   <main>
-    <!-- Inserisci qui le altre sezioni: #intro, #analisi, ecc. -->
+    <section class="features">
+      <div class="features-container">
+        <a href="analisi.html" class="feature-card reveal" style="background-image: url('assets/img/0e990e54-26a1-11f0-810a-0242ac110002-jpg-regular_image.jpeg');">
+          <div class="feature-content">
+            <h3>Analisi ambientali</h3>
+            <p>Approfondisci la tua conoscenza sull'ambiente con le nostre analisi dettagliate.</p>
+          </div>
+        </a>
+        <a href="report.html" class="feature-card reveal" style="background-image: url('assets/img/0e794b3c-26a1-11f0-810a-0242ac110002-jpg-regular_image.jpeg');">
+          <div class="feature-content">
+            <h3>Report su inquinamento</h3>
+            <p>Ricevi report dettagliati sull'inquinamento in tempo reale.</p>
+          </div>
+        </a>
+        <a href="dataset.html" class="feature-card reveal" style="background-image: url('assets/img/0e929cf4-26a1-11f0-810a-0242ac110002-jpg-regular_image.jpeg');">
+          <div class="feature-content">
+            <h3>Accesso a dataset ecologici</h3>
+            <p>Accedi a un ampio database di dati ecologici per le tue esigenze.</p>
+          </div>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer id="contatti">
+  <footer>
     <div class="container">
-      <p>Seguimi su <a href="#">LinkedIn</a>, <a href="#">Instagram</a> e <a href="#">GitHub</a></p>
+      <p>© 2025 EcoItaly Agorà. Tutti i diritti riservati.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Termini di Servizio</a> | <a href="#">Contatti</a></p>
     </div>
   </footer>
 
@@ -53,6 +77,18 @@
     const btn = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.main-nav ul');
     btn.addEventListener('click', () => menu.classList.toggle('visible'));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
